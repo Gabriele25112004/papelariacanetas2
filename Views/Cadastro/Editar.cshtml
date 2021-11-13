@@ -1,0 +1,25 @@
+@using System;
+@using System.Collections.Generic;
+@using System.Diagnostics;
+@using System.Linq;
+@using System.Threading.Tasks;
+@using Microsoft.AspNetCore.Mvc;
+@using Microsoft.Extensions.Logging;
+@using papelariacanetas2.Models;
+@using Microsoft.AspNetCore.Http;
+
+@model Cadastro
+<h1>Realize a edição do Usuario</h1>
+
+<form action="Editar" method="post">
+
+    <input type="text" name="Nome" id="userNome" value="@Context.Session.GetString("NomeUser")">
+    <input type="text" name="Login" id="userLogin" value="@Context.Session.GetString("login")">
+    <input type="text" name="Senha" id="userSenha" value="@Context.Session.GetString("Senha")">
+    <input type="text" name="Email" id="userEmail" value="@Context.Session.GetString("Email")">
+
+    <input type="hidden" asp-for="Id" value="@Context.Session.GetInt32("UserId")" id="UserId">
+
+    <input type="submit" value="Concluir edição">
+
+</form>

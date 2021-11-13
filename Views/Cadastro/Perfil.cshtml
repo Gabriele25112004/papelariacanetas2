@@ -1,0 +1,28 @@
+@using System;
+@using System.Collections.Generic;
+@using System.Diagnostics;
+@using System.Linq;
+@using System.Threading.Tasks;
+@using Microsoft.AspNetCore.Mvc;
+@using Microsoft.Extensions.Logging;
+@using papelariacanetas2.Models;
+@using Microsoft.AspNetCore.Http;
+
+@model List<Cadastro>
+
+<div class="Perfildiv">
+    <div class="PerfilNome">
+        <h6>Nome:</h6>
+        <p>@Context.Session.GetString("NomeUser")</p>
+    </div>
+    <div class="PerfilLogin">
+        <h6>Login:</h6>
+        <p>@Context.Session.GetString("login")</p>
+    </div>
+    <div class="PerfilEmail">
+        <h6>Email:</h6>
+        <p>@Context.Session.GetString("Email")</p>
+    </div>
+    <a href="Editar?@Context.Session.GetInt32("UserId")">Editar</a>
+    <a href="Excluir?@Context.Session.GetInt32("UserId")">Excluir</a>
+</div>

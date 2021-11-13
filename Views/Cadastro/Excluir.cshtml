@@ -1,0 +1,30 @@
+@using System;
+@using System.Collections.Generic;
+@using System.Diagnostics;
+@using System.Linq;
+@using System.Threading.Tasks;
+@using Microsoft.AspNetCore.Mvc;
+@using Microsoft.Extensions.Logging;
+@using papelariacanetas2.Models;
+@using Microsoft.AspNetCore.Http;
+
+
+@model Cadastro
+
+<h1>
+    ALERTA!
+</h1>
+
+<h2>
+    Tem certeza que deseja Excluir o Produto "@Context.Session.GetString("NomeUser")"?
+</h2>
+
+<form action="Excluir" method="post">
+
+
+    <input type="hidden" name="id" value="@Context.Session.GetInt32("UserId")">
+
+    <input name="decisao" type="submit" value="EXCLUIR">
+    <input name="decisao" type="submit" value="CANCELAR">
+
+</form>

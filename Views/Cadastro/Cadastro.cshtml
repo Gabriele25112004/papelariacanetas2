@@ -1,0 +1,47 @@
+@model Cadastro
+
+@{
+
+    ViewData["Title"] = "Cadastro";
+
+}
+<div id="Frm">
+    <form asp-action="Cadastro" method="POST" id="FrmCadastro" class="jumbotron"
+        onsubmit="return validarCadastro(this)">
+        <legend>Cadastre-se</legend>
+        <input type="hidden" asp-for="Id">
+        <div class="input-group mb-3">
+            <input asp-for="Nome" id="Nome" class="form-control" placeholder="Nome" aria-label="Nome"
+                aria-describedby="basic-addon1">
+            <div>
+                <p><span style="color: red;" class="msg-erro msg-erro-Nome"></span></p>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <input asp-for="Login" id="LoginUser" class="form-control" placeholder="Login" aria-label="Login"
+                aria-describedby="basic-addon1">
+            <div>
+                <p><span style="color: red;" class="msg-erro msg-erro-Login"></span></p>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <input asp-for="Senha" id="SenhaUser" class="form-control" placeholder="Senha" aria-label="Senha"
+                aria-describedby="basic-addon1">
+            <div>
+                <p><span style="color: red;" class="msg-erro msg-erro-Senha"></span></p>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <input asp-for="Email" id="Email" class="form-control" placeholder="Email" aria-label="Email"
+                aria-describedby="basic-addon1">
+            <div>
+                <p><span style="color: red;" class="msg-erro msg-erro-Email"></span></p>
+            </div>
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">exemplo@exemplo.com</span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-secondary btn-lg btn-block">Cadastrar</button>
+
+    </form>
+</div>

@@ -1,0 +1,35 @@
+@using System;
+@using System.Collections.Generic;
+@using System.Diagnostics;
+@using System.Linq;
+@using System.Threading.Tasks;
+@using Microsoft.AspNetCore.Mvc;
+@using Microsoft.Extensions.Logging;
+@using papelariacanetas2.Models;
+@using Microsoft.AspNetCore.Http;
+
+@model Produto
+
+@{
+
+    ViewData["Title"] = "Edição de Produtos";
+
+}
+
+<form action="Editar" method="post">
+
+    <input type="hidden" asp-for="Id">
+
+    <div>
+        <input asp-for="NomeProduto" placeholder="Nome Produto" id="NomeProduto" value="@Model.NomeProduto">
+    </div>
+    <div>
+        <input asp-for="TipoProduto" placeholder="Tipo Produto" id="TipoProduto" value="@Model.TipoProduto">
+    </div>
+    <div>
+        <input asp-for="ValorUnitario" placeholder="Valor Unitario" id="ValorUnitario" value="@Model.ValorUnitario">
+    </div>
+
+    <input type="submit" value="Cadastrar">
+
+</form>

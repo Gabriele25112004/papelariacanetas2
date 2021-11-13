@@ -1,0 +1,86 @@
+@model List<Produto>
+
+@{
+
+    ViewData["Title"] = "Lista de Produtos";
+
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-inline" method="POST">
+            <div class="form-group mb-2">
+                <select name="TipoFiltro" class="form-control">
+                    <option value="Produto">Nome Produto</option>
+                    <option value="TipoProduto">Tipo do Produto</option>
+                </select>
+                <div class="form-grounp mb-2 mx-sm-2">
+                    <input type="text" placeholder="Filtro" name="Filtro" class="Form-control">
+                </div>
+
+                <button type="submit" class="btn btn-primary mb-2">Pesquisar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table striped">
+
+
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>
+                        Nome Produto
+                    </th>
+                    <th>
+                        Tipo Produto
+                    </th>
+                    <th>
+                        Valor unitario
+                    </th>
+                    <th>
+                        Editar
+                    </th>
+                    <th>
+                        Excluir
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (Produto P in Model)
+                {
+
+                    <tr>
+
+                        <td>
+                            @P.Id
+                        </td>
+                        <td>
+                            @P.NomeProduto
+                        </td>
+                        <td>
+                            @P.TipoProduto
+                        </td>
+                        <td>
+                            @P.ValorUnitario
+                        </td>
+
+                        <td>
+                            <a href="Editar?id=@P.Id">Editar</a>
+                        </td>
+                        <td>
+                            <a href="Excluir?id=@P.Id">Excluir</a>
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
